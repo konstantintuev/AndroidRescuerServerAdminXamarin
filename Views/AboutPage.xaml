@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ServeAdmin.AboutPage" xmlns:vm="clr-namespace:ServeAdmin;" Title="{Binding Title}">
+	<ContentPage.BindingContext>
+		<vm:AboutViewModel />
+	</ContentPage.BindingContext>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<ScrollView Grid.Row="1">
+			<StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10" x:Name="root">
+				<Label FontSize="22">
+					<Label.FormattedText>
+						<FormattedString>
+							<FormattedString.Spans>
+								<Span Text="Serve Admin" FontAttributes="Bold" FontSize="22" />
+								<Span Text=" " />
+								<Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}" />
+							</FormattedString.Spans>
+						</FormattedString>
+					</Label.FormattedText>
+				</Label>
+				<Label>
+					<Label.FormattedText>
+						<FormattedString>
+							<FormattedString.Spans>
+								<Span Text="This app is made to control and manage the" />
+								<Span Text=" " />
+								<Span Text="Swift Server" FontAttributes="Bold" />
+								<Span Text="." />
+							</FormattedString.Spans>
+						</FormattedString>
+					</Label.FormattedText>
+				</Label>
+				<Label>
+					<Label.FormattedText>
+						<FormattedString>
+							<FormattedString.Spans>
+								<Span Text="It's made with xamarin and is cross-platform because I am thinking of changing my main device." />
+							</FormattedString.Spans>
+						</FormattedString>
+					</Label.FormattedText>
+				</Label>
+				<Button Margin="0,10,0,0" Text="Open app page" Command="{Binding OpenWebCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+                <StackLayout Padding="1, 5, 1, 5" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Switch to Home Connection" VerticalOptions="Center"/>
+                    <Switch x:Name="switchURL" VerticalOptions="Center" IsToggled="{Binding HomeWifi}" Toggled="Handle_Toggled"/>
+                </StackLayout>
+
+                    <Button x:Name="turnServerOn" Text="Turn the Swift Server on" Command="{Binding TurnSwift}" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+
+                    <Button x:Name="getWebCamPic" Text="Take a picture with server's camera" Clicked="Handle_Clicked" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+            </StackLayout>
+		</ScrollView>
+	</Grid>
+</ContentPage>
